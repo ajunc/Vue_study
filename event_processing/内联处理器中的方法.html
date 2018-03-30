@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="example-4">
+        <input v-on:keyup.enter="warn('enter')" value="enter">
+        <input v-on:keyup.tab="warn('tab')" value="tab">
+        <input v-on:keyup.delete="warn('delete')" value="delete">
+        <input v-on:keyup.esc="warn('esc')" value="esc">
+    </div>
+
+    <script src="../Vue.js_v2.5.16.js"></script>
+    <script>
+        new Vue({
+            el:"#example-4",
+            methods: {
+                warn: function (message) {
+                    alert(message)
+                }
+            }
+        });
+    </script>
+</body>
+</html>

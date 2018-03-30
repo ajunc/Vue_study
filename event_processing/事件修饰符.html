@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <pre>在事件处理程序中调用 event.preventDefault() 或 event.stopPropagation() 是非常常见的需求。
+        尽管我们可以在方法中轻松实现这点，但更好的方式是：方法只有纯粹的数据逻辑，而不是去处理 DOM 事件细节。
+
+        为了解决这个问题，Vue.js 为 v-on 提供了事件修饰符。之前提过，修饰符是由点开头的指令后缀来表示的。</pre>
+    <div id="example-2">
+        <button v-on:click="greet">Greet</button>
+    </div>
+    <script src="../Vue.js_v2.5.16.js"></script>
+    <script>
+        var example2 = new Vue({
+            el:"#example-2",
+            data:{
+                name:"Vue.js"
+            },
+            methods:{
+                greet:function (event) {
+                    alert('Hello' + this.name + "!");
+                    if(event){
+                        alert(event.target.tagName);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
